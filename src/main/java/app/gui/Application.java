@@ -6,6 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -352,6 +353,8 @@ public class Application {
                 }
                 catch (JSONException ex) {
                     JOptionPane.showMessageDialog(jFrame, ex.getMessage());
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
                 }
             }
         });

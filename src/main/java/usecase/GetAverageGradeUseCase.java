@@ -4,6 +4,8 @@ import api.GradeDataBase;
 import entity.Grade;
 import entity.Team;
 
+import java.io.IOException;
+
 /**
  * GetAverageGradeUseCase class.
  */
@@ -19,7 +21,7 @@ public final class GetAverageGradeUseCase {
      * @param course The course.
      * @return The average grade.
      */
-    public float getAverageGrade(String course) {
+    public float getAverageGrade(String course) throws IOException {
         // Call the API to get usernames of all your team members
         float sum = 0;
         int count = 0;
@@ -34,6 +36,7 @@ public final class GetAverageGradeUseCase {
         for (String member : team.getMembers()) {
             sum += useCase.getGrade(member,  course).getGrade();
         }
+
 
         if (count == 0) {
             return 0;
